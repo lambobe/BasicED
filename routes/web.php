@@ -83,8 +83,7 @@ Route::post('/teacherattendance', [Datacontroller::class, 'teacherattendancepost
 
 Route::get('teachercorevalue', [Pagecontroller::class, 'teachercorevalue'])->middleware('auth');
 Route::post('/teachercorevalue', [Datacontroller::class, 'teachercorevaluepost'])->name('teachercorevaluesubmit');
-Route::get('/teachercorevaluesubmit/{teacher_id}/{edp_code}', [UserController::class, 'teachercorevaluesubmit'])
-    ->name('teachercorevaluesubmit');
+Route::get('/teachercorevaluesubmit/{teacher_id}/{edp_code}', [UserController::class, 'teachercorevaluesubmit']);
     
 Route::get('principal', [Pagecontroller::class, 'principal']);
 Route::get('sectioning', [Pagecontroller::class, 'sectioning']);
@@ -134,7 +133,7 @@ Route::get('principalassessment', [Pagecontroller::class, 'principalassessment']
 Route::post('/assessment/publish/{id}', [Usercontroller::class, 'publishAssessment'])->name('assessment.publish');
 
 Route::get('principaleditassessment', [Pagecontroller::class, 'principaleditassessment']);
-Route::get('principaleditassessment/{id}', [UserController::class, 'principaleditassessment'])->name('assessment.edit');
+Route::get('principaleditassessment/{id}', [UserController::class, 'principaleditassessment']);
 Route::put('principaleditassessment/{id}', [DataController::class, 'principaleditassessmentpost'])->name('assessment.edit');
 
 //accounting 
@@ -211,7 +210,7 @@ Route::get('oldstudentupdatedetails', [Pagecontroller::class, 'oldstudentupdated
 Route::get('oldstudentupdatedetails/{id}', [Usercontroller::class, 'oldstudentupdatedetails'])->name('oldstudentupdatedetails.id');
 Route::post('oldstudentupdatedetails', [Datacontroller::class, 'oldstudentupdatedetailspost'])->middleware('auth');
 
-Route::get('oldstudentupdateaddress', [Pagecontroller::class, 'oldstudentupdateaddress'])->middleware('auth')->name('updatedetails');
+Route::get('oldstudentupdateaddress', [Pagecontroller::class, 'oldstudentupdateaddress'])->middleware('auth');
 Route::post('oldstudentupdateaddress', [Datacontroller::class, 'oldstudentupdateaddresspost'])->middleware('auth');
 Route::get('/oldstudentupdateaddress/{id}', [Usercontroller::class, 'oldstudentupdateaddress'])->name('oldstudentupdateaddress.id');
 
@@ -248,7 +247,7 @@ Route::post('updateaddress', [Datacontroller::class, 'updateaddresspost'])->midd
 Route::get('updateaddress/{id}', [Usercontroller::class, 'updateaddress'])->middleware('auth')->name('updateaddress.id');
 
 
-Route::get('updatedocuments', [Pagecontroller::class, 'updatedocuments'])->middleware('auth')->name('updatedocuments');
+Route::get('updatedocuments', [Pagecontroller::class, 'updatedocuments'])->middleware('auth');
 Route::post('updatedocuments', [Datacontroller::class, 'updatedocumentspost'])->middleware('auth');
 Route::get('updatedocuments/{id}', [Usercontroller::class, 'updatedocuments'])->middleware('auth')->name('updatedocuments.id');
 Route::post('/updatedocuments', [Datacontroller::class, 'updateDocuments'])->name('updatedocuments');
